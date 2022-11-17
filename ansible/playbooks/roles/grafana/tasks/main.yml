@@ -1,4 +1,4 @@
-- name: Install nessesary package
+- name: Install necessary package
   apt: 
       name: apt-transport-https
       state: present
@@ -36,3 +36,27 @@
     url: http://localhost:3000
     method: GET
     status_code: 200
+
+- name: Import alert manager
+  community.grafana.grafana_dashboard:
+    grafana_url: http://localhost:3000
+    grafana_api_key: "{{ grafana_api_key }}"
+    folder: General
+    overwrite: yes
+    dashboard_url: https://raw.githubusercontent.com/PauloGDPeixoto/ctw-academy/main/resources/alertmanager_rev4.json
+
+- name: Import node exporter
+  community.grafana.grafana_dashboard:
+    grafana_url: http://localhost:3000
+    grafana_api_key: "{{ grafana_api_key }}"
+    folder: General
+    overwrite: yes
+    dashboard_url: https://raw.githubusercontent.com/PauloGDPeixoto/ctw-academy/main/resources/node-exporter-server-metrics_rev8.json
+
+- name: Import prometheus
+  community.grafana.grafana_dashboard:
+    grafana_url: http://localhost:3000
+    grafana_api_key: "{{ grafana_api_key }}"
+    folder: General
+    overwrite: yes
+    dashboard_url: https://raw.githubusercontent.com/PauloGDPeixoto/ctw-academy/main/resources/prometheus-2-0-overview_rev2.json
