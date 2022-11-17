@@ -10,7 +10,7 @@ terraform {
   }
     backend "azurerm" {
         resource_group_name  = "cicd-academy-rg"
-        storage_account_name = "tfstatemc1yh"
+        storage_account_name = "group2tftstate7"
         container_name       = "tfstate"
         key                  = "terraform.tfstate"
     }
