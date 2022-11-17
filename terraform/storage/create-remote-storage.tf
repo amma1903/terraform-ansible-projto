@@ -14,14 +14,16 @@ provider "azurerm" {
   skip_provider_registration = true
 }
 
+/**
 resource "random_string" "resource_code" {
   length  = 5
   special = false
   upper   = false
 }
+**/
 
 resource "azurerm_storage_account" "tfstate" {
-  name                     = "tfstate${random_string.resource_code.result}"
+  name                     = "tfstatemc1yh"
   resource_group_name      = var.resource_group_name
   location                 = var.resource_group_location
   account_tier             = "Standard"
